@@ -1,0 +1,62 @@
+{
+    "data": {
+        "basepath": "/home/gross/data/SynthCars",
+        "num_channels": 3
+    },
+    "gpu_index": 0,
+    "model": {
+        "model": "tp8",
+        "backbone": "pointnet",
+        "options": {
+            "angle_factor": 1.0,
+            "early_stage_factor": 0.1,
+            "s1transformer": [[128, 128, 256], [[512, 256], 0.7]],
+            "s2transformer": [[64, 64, 64, 128, 1024], [[512, 256], 0.7]],
+            "embedding": [64, 64, 64, 128, 1024],
+            "remaining_transform_prediction": [[512, 256], 0.7]
+        },
+        "num_points": 1024,
+        "angles": {
+            "num_bins": 36,
+            "accept_inverted_angle": false
+        }
+    },
+    "logging": {
+        "basedir": "/home/gross/models/alignnet"
+    },
+    "evaluation": {
+        "save_every_epoch": true
+    },
+    "training": {
+        "batch_size": 64,
+        "num_epochs": 100,
+        "optimizer": {
+            "optimizer": "adam"
+        },
+        "learning_rate": 0.01,
+        "lr_extension": {
+            "mode": "decay",
+            "per": "epoch",
+            "step": 30,
+            "rate": 0.5
+        },
+        "bn_extension": {
+            "mode": "decay",
+            "per": "epoch",
+            "step": 30,
+            "rate": 0.5,
+            "init": 0.5,
+            "clip": 0.99
+        },
+        "loss": {
+            "loss": "separate",
+            "options": {
+                "soft_angle_classes": false,
+                "soft_angle_classes_sigma_in_degree": 5.0
+            }
+        },
+        "pretraining": {
+            "model": ""
+        }
+    }
+}

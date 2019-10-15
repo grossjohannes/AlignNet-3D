@@ -1,0 +1,47 @@
+{
+    "data": {
+        "basepath": "/home/gross/data/Synth20"
+    },
+    "model": {
+        "model": "tp8",
+        "backbone": "pointnet",
+        "num_points": 512,
+        "options": {
+            "angle_factor": 1.0,
+            "early_stage_factor": 0.5,
+            "s1transformer": [[64, 128, 256], [[512, 256], 0.7]],
+            "s2transformer": [[64, 128, 512], [[512, 256], 0.7]],
+            "embedding": [64, 128, 1024],
+            "remaining_transform_prediction": [[512, 256], 0.7]
+        },
+        "angles": {
+            "num_bins": 50,
+            "accept_inverted_angle": false
+        }
+    },
+    "evaluation": {
+        "accept_inverted_angle": true
+    },
+    "training": {
+        "num_epochs": 200,
+        "batch_size": 128,
+        "learning_rate": 0.005,
+        "lr_extension": {
+            "mode": "decay",
+            "per": "epoch",
+            "step": 30,
+            "rate": 0.5
+        },
+        "bn_extension": {
+            "mode": "decay",
+            "per": "epoch",
+            "step": 30,
+            "rate": 0.5,
+            "init": 0.5,
+            "clip": 0.99
+        },
+        "loss": {
+            "loss": "separate"
+        }
+    }
+}
