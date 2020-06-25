@@ -91,6 +91,10 @@ data
   - The evaluation results are written to a `refined_p2p` subfolder
 - Some trained models and evaluation results can be found in [models_alignnet.zip](https://drive.google.com/uc?id=1byWj8J73fHTBSkXL2qOrPojSMhENP7SQ&export=download)
 
+## License
+
+Our code is released under BSD-3 License (see LICENSE file for details).
+
 ## References
 
 - This repository builds upon, thus borrows code heavily from [PointNet](https://github.com/charlesq34/pointnet), [Frustum PointNets](https://github.com/charlesq34/frustum-pointnets) and [DGCNN](https://github.com/WangYueFt/dgcnn).
