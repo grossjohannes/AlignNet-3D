@@ -5,5 +5,5 @@ pyntcloud==0.1.0
 pythreejs==2.0.0
 trimesh==2.37.3
 tqdm==4.23.4
-Pillow==5.1.0
+Pillow==9.0.1
 
